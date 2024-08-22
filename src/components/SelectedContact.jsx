@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import SelectionDeets from "./SelectionDeets";
 
-const SelectedContact = ({selectedContactId}) => {
+const SelectedContact = ({setSelectedContactId, selectedContactId}) => {
 
     const [contact, setContact]=useState({});
 
@@ -25,7 +25,8 @@ const SelectedContact = ({selectedContactId}) => {
 return (
     <>
         <article className="Contact">
-            <SelectionDeets contact={contact}/>
+            <SelectionDeets contact={contact} setSelectedContactId={setSelectedContactId}/>
+            <button onClick={() => setSelectedContactId(null)}>Return to Directory</button>
         </article>
     </> 
 )
